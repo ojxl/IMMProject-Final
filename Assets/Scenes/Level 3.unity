@@ -1044,6 +1044,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table 1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7077527850432033847, guid: 024897184c2eb5c4c9385ce71ebdc086, type: 3}
+      propertyPath: m_TagString
+      value: lossItem
+      objectReference: {fileID: 0}
     - target: {fileID: 7598626695907585677, guid: 024897184c2eb5c4c9385ce71ebdc086, type: 3}
       propertyPath: m_LocalPosition.x
       value: 32.7

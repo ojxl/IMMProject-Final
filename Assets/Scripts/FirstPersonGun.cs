@@ -8,11 +8,17 @@ using UnityEngine;
         Vector3 Hitpoint = Vector3.zero;
         GameManager gameManager;
 
+        AudioSource audioSource; 
+
+        public AudioClip gunSound;
+
+        public AudioClip missSound;
         // Start is called before the first frame update
         void Start()
         {
             cam = Camera.main; 
             gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+            audioSource = gameObject.GetComponent<AudioSource>();
 
         }
 
@@ -30,6 +36,7 @@ using UnityEngine;
                     if(Physics.Raycast(ray, out hit)) {
                         GameObject hitItem = hit.collider.gameObject;
                         gameManager.SetAmmo();
+                        audioSource.PlayOneShot(gunSound, 1.0f); 
                         if(hitItem.tag == "bottle") {
                             Bottle bottleScript = hitItem.GetComponent<Bottle>();
                             if(bottleScript != null) {
@@ -39,6 +46,9 @@ using UnityEngine;
                         }
                         else if(hitItem.tag == "lossItem") {
                             gameManager.destroyedLossItem();
+                        }
+                        else {
+                            audioSource.PlayOneShot(missSound, 1.0f);
                         }
                     }
                 }

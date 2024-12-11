@@ -15,9 +15,13 @@ public class GameManager : MonoBehaviour
 
     public bool canShoot;
 
+    AudioSource audioSource;
+    public AudioClip hitSound;
+
     void Start(){
         bottles = GameObject.FindGameObjectsWithTag("bottle").Length;
         Debug.Log(bottles);
+        audioSource = gameObject.GetComponent<AudioSource>();
         if(lossText != null){
             lossText.SetActive(false); 
             winText.SetActive(false);
@@ -39,6 +43,7 @@ public class GameManager : MonoBehaviour
     public void destroyedBottle() {
         bottles--;
         Debug.Log(bottles);
+        audioSource.PlayOneShot(hitSound, 1.0f);
         bottleText.text = "Bottles: " + bottles.ToString();
         if(bottles == 0) {
             Debug.Log("no more bottles left");
