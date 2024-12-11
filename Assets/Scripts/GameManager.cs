@@ -31,6 +31,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void GitHub() {
+        Application.OpenURL("https://github.com/ojxl/IMMProject-Final");
+    }
+
     public void LoadNextLevel(){
         if(SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings) {
             SceneManager.LoadScene(0);
