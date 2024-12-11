@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
             StartCoroutine(LossState());
         }
     }
-
+    
     IEnumerator LossState() {
         canShoot = false;
         lossText.SetActive(true);
